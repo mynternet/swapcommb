@@ -4,6 +4,10 @@ const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
 const routes = require("./routes");
 
+//const path = require("path");
+const db = require("./config/connection");
+//const { Console } = require("console");
+
 // Initialize Express app
 const app = express();
 
@@ -32,4 +36,9 @@ startApolloServer();
 app.use(routes);
 
 module.exports = app;
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 
