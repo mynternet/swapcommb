@@ -13,6 +13,7 @@
   "dependencies": {
     "@apollo/server": "^4.9.4",
     "apollo-server-express": "^3.12.1",
+    "apollo-server-micro": "^3.13.0",
     "bcrypt": "^5.1.1",
     "card-validator": "^8.1.1",
     "cors": "^2.8.5",
