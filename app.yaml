@@ -1,0 +1,25 @@
+runtime: nodejs20  # Use the Node.js version that matches your development environment
+env: standard
+instance_class: F1  # This is the smallest instance class, adjust based on your needs
+
+#service: backend
+
+# Automatic scaling configuration
+automatic_scaling:
+  min_idle_instances: 0  # Minimum number of idle instances
+  max_idle_instances: automatic  # Maximum number of idle instances
+  min_pending_latency: automatic  # Minimum latency before scaling up
+  max_pending_latency: automatic  # Maximum latency before scaling down
+
+# Environment variables:
+env_variables:
+  NODE_ENV: 'production'
+  MONGODB_URI: "mongodb+srv://user:Swapcomm123.@cluster0.wli66cj.mongodb.net/swapcommdb?retryWrites=true&w=majority"
+  # Add other environment variables if needed, like database URLs
+
+# Handlers define how to respond to HTTP requests
+handlers:
+  - url: /.*
+    script: auto
+    secure: always  # Redirect HTTP to HTTPS
+
